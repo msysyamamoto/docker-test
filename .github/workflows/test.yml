@@ -1,0 +1,12 @@
+name: "Test"
+
+on:
+  workflow_dispatch:
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          docker buildx create --use
+          docker buildx inspect
