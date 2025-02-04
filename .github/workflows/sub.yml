@@ -29,3 +29,6 @@ jobs:
           path: /tmp/downloads/
           pattern: tags_*
           merge-multiple: true
+
+      - name: ls
+        run: ls -alFr /tmp/downloads/
