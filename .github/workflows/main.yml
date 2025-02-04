@@ -2,14 +2,30 @@ permissions: write-all
 
 on:
     workflow_dispatch:
-    
+      inputs:
+        root_job_name:
+          required: false
+          type: string
 jobs:
+  init:
+    name: Initialize
+    runs-on: ubuntu-latest
+    outputs:
+      root_job_name: ${{ steps.root_job_name.outputs.root_job_name }}
+    steps:
+      - name: Set Default Root Job Name
+        id: root_job_name
+        if: inputs.root_job_name == ''
+        run: echo "root_job_name=default" >> $GITHUB_OUTPUT
+
   call_reusable_workflow1:
+    needs: init
     uses: ./.github/workflows/sub.yml
     with:
-      parent_name: call_reusable_workflow1
+      parent_name: ${{ needs.init.outputs.root_job_name }}
 
   call_reusable_workflow2:
-      uses: ./.github/workflows/sub.yml
-      with:
-        parent_name: call_reusable_workflow2
+    needs: init
+    uses: ./.github/workflows/sub.yml
+    with:
+      parent_name: call_reusable_workflow2
