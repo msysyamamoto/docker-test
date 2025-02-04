@@ -15,10 +15,14 @@ jobs:
     outputs:
       root_job_name: ${{ steps.root_job_name.outputs.root_job_name }}
     steps:
-      - name: Set Default Root Job Name
+      - name: Set Root Job Name
         id: root_job_name
-        if: inputs.root_job_name == ''
-        run: echo "root_job_name=default" >> $GITHUB_OUTPUT
+        run: |
+          if [ -z "${{ inputs.root_job_name }}" ]; then
+            echo "root_job_name=default" >> $GITHUB_OUTPUT
+          else
+            echo "root_job_name=${{ inputs.root_job_name }}" >> $GITHUB_OUTPUT
+          fi
 
   call_reusable_workflow1:
     needs: init
