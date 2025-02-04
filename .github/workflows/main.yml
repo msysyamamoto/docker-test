@@ -2,6 +2,6 @@ on:
     workflow_dispatch:
 jobs:
   call_reusable_workflow:
-    uses: ./.github/workflows/reusable-workflow.yml
+    uses: ./.github/workflows/sub.yml
     with:
       targets: api
