@@ -13,10 +13,9 @@ jobs:
         run: echo "The calling job name is ${{ github.event.workflow_call.inputs.job_name }}"
 
       - name: touch
-
         run: |
           mkdir -p /tmp/out
-          touch /tmp/out/$(date +%s).txt
+          echo ${{inputs.parent_name}} > /tmp/out/${{inputs.parent_name}}.txt
 
       - name: Upload tags
         uses: actions/upload-artifact@v4
