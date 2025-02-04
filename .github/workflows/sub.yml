@@ -22,3 +22,10 @@ jobs:
           path: /tmp/out/*
           if-no-files-found: error
           retention-days: 1
+
+      - name: Download tags
+        uses: actions/download-artifact@v4
+        with:
+          path: /tmp/downloads/
+          pattern: tags_*
+          merge-multiple: true
