@@ -7,9 +7,9 @@ jobs:
   call_reusable_workflow1:
     uses: ./.github/workflows/sub0.yml
     with:
-      parent_name: call_reusable_workflow1
+      root_job_name: call_reusable_workflow1
 
   call_reusable_workflow2:
     uses: ./.github/workflows/sub0.yml
     with:
-      parent_name: call_reusable_workflow2
+      root_job_name: call_reusable_workflow2
