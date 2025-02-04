@@ -1,0 +1,10 @@
+on:
+    workflow_call:
+
+jobs:
+  example_job:
+    name: Example Job
+    runs-on: ubuntu-latest
+    steps:
+      - name: Display Calling Job ID
+        run: echo "The calling job ID is ${GITHUB_JOB}"
