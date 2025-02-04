@@ -8,3 +8,14 @@ jobs:
     steps:
       - name: Display Calling Job ID
         run: echo "The calling job name is ${{ github.event.workflow_call.inputs.job_name }}"
+
+      - name: touch
+        run: touch /tmp/$(date +%s).txt
+
+      - name: Upload tags
+        uses: actions/upload-artifact@v4
+        with:
+          name: tags_a_b
+          path: /tmp/*
+          if-no-files-found: error
+          retention-days: 1
