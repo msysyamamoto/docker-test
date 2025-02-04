@@ -1,6 +1,9 @@
 on:
   workflow_call:
-
+    inputs:
+      parent_name:
+        required: false
+        type: string
 jobs:
   example_job:
     name: Example Job
@@ -18,7 +21,7 @@ jobs:
       - name: Upload tags
         uses: actions/upload-artifact@v4
         with:
-          name: tags_a_b
+          name: tags_a_b_${{ inputs.parent_name}}
           path: /tmp/out/*
           if-no-files-found: error
           retention-days: 1
