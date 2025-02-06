@@ -2,6 +2,11 @@ permissions: write-all
 
 on:
   workflow_dispatch:
+    inputs:
+      caution:
+        required: false
+        type: string
+        description: あのイーハトーヴォのすきとおった風
 
 jobs:
   call_reusable_workflow1:
