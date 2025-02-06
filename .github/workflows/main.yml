@@ -7,6 +7,7 @@ on:
         required: false
         type: string
         description: あのイーハトーヴォのすきとおった風
+        default: 夏でも底に冷たさをもつ青いそら
 
 jobs:
   call_reusable_workflow1:
