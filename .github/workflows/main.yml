@@ -6,19 +6,8 @@ on:
       caution:
         required: false
         type: string
-        description: このワークフローを手動で実行しないでください
+        description: このワークフローを手動で実行しないでください<br/>https://github.com/
         default: テキストボックスの値は無視されます
-      environment:
-        required: true
-        type: choice
-        default: 'dev'
-        options:
-          - dev
-      target:
-        required: true
-        type: choice
-        options:
-          - api
 jobs:
   call_reusable_workflow1:
     uses: ./.github/workflows/sub0.yml
