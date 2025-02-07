@@ -7,6 +7,7 @@ on:
         required: false
         type: string
         description: このワークフローを手動で実行しないでください. https://www.notion.so/11111111111111111111111111111111
+        deprecationMessage: deprecationMessage
         default: テキストボックスの値は無視されます
 jobs:
   call_reusable_workflow1:
